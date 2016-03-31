@@ -1,39 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Company -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Company %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @company.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:street_1) %></dt>
+      <dd><pre class="prettyprint"><%= @company.street_1 %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:street_2) %></dt>
+      <dd><pre class="prettyprint"><%= @company.street_2 %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:city) %></dt>
+      <dd><pre class="prettyprint"><%= @company.city %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:state) %></dt>
+      <dd><pre class="prettyprint"><%= @company.state %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:zip_code) %></dt>
+      <dd><pre class="prettyprint"><%= @company.zip_code %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:country) %></dt>
+      <dd><pre class="prettyprint"><%= @company.country %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Street 1:</strong>
-  <%= @company.street_1 %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              companies_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_company_path(@company), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              company_path(@company),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Street 2:</strong>
-  <%= @company.street_2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @company.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @company.state %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @company.zip_code %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @company.country %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
